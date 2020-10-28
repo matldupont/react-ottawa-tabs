@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider, GlobalStyle, Stack, Heading } from '@rebeldotcom/components'
+import {TabView} from './TabView'
+
+const tabs = [
+  {title: "Tab 1", content: "This is Tab 1"},
+  {title: "Tab 2", content: "This is Tab 2"},
+  {title: "Tab 3", content: "This is Tab 3"},
+  {title: "Tab 4", content: "This is Tab 4"},
+
+]
+  
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider >
+        <GlobalStyle />
+        <Stack as="main" alignItems="center" py={5}>
+          <Heading as="h1" variant="teraBold">Tabbed Interface Demo</Heading>
+          <TabView tabData={tabs} />
+        </Stack>
+      </ThemeProvider>
   );
 }
 
